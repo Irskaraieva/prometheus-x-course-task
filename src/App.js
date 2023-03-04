@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import "./styles/index.css";
 import SignIn from "./components/signin/SignIn";
@@ -14,51 +14,53 @@ import { ContextLoginProvider, ContextLogin } from "./helpers/Context";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <>
         <ContextLoginProvider>
           <CartItemCountProvider>
-            <Header />
-            <Routes>
-             
-              <Route path="sign-in" element={<SignIn />} default />
-              <Route
-                path="book-list"
-                element={
-                  <UserRoute>
-                    <CardList />
-                  </UserRoute>
-                }
-              />
-              <Route
-                path="specific-book/:id"
-                element={
-                  <UserRoute>
-                    <SpecificBook />
-                  </UserRoute>
-                }
-              />
-              <Route
-                path="cart"
-                element={
-                  <UserRoute>
-                    <PurchaseList />
-                  </UserRoute>
-                }
-              />
-              <Route path="*" element={<Navigate to="/error" />} />
-              <Route path="error" element={<ErrorPage />} />
-            </Routes>
-            <Footer />
+            <Header />            
+            <Routes basename="/" >
+              <Route path="/" element={<SignIn />} />
+                  <Route
+                    path="book-list"
+                    element={
+                      <UserRoute>
+                        <CardList />
+                      </UserRoute>
+                    }
+                  />
+                  <Route
+                    path="specific-book/:id"
+                    element={
+                      <UserRoute>
+                        <SpecificBook />
+                      </UserRoute>
+                    }
+                  />
+                  <Route
+                    path="cart"
+                    element={
+                      <UserRoute>
+                        <PurchaseList />
+                      </UserRoute>
+                    }
+                  />
+                  <Route path="error" element={<ErrorPage />} />
+                  <Route path="*" element={<Navigate to="/error" />} />
+                </Routes>
+              <Footer />
           </CartItemCountProvider>
         </ContextLoginProvider>
-      </Router>
+      </>
     </div>
   );
 }
 
 function UserRoute({ children }) {
   const { userName } = useContext(ContextLogin);
-  return userName ? children : <Navigate to="/sign-in" />;
+  if (!userName) {
+    return <SignIn />;
+  }
+  return children;
 }
 
 export default App;
