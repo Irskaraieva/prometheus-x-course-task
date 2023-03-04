@@ -44,18 +44,19 @@ const PurchaseList = () => {
   return (
     <>
       <div className="purchaseList">
-        <button type="submit" className="purchase" onClick={() => cleanCart()}>
-          <span>Purchase</span>
-        </button>
-      
-        <div className="purchase__total__btn">
-          {cartItems.length > 0 ? (
+        {cartItems.length > 0 ? (
+          <>
+            <button type="submit" className="purchase" onClick={() => cleanCart()}>
+              <span>Purchase</span>
+            </button>
+          
+            <span className="total__price__pur">
+              Total price, $ {totalPriceSum}
+            </span>
+          
             <BtnToTheStore />
-          ) : null}
-          <span className="total__price__pur">
-            Total price, $ {totalPriceSum}
-          </span>
-        </div>
+          </>
+        ) : null}
 
         <div className="list__items">
 

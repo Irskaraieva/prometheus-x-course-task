@@ -46,7 +46,7 @@ const Header = () => {
                 {cartItems.length > 0 && <span className="cart__count">{cartItems.length}</span>}
               </Link>
 
-              <Link to='/sign-in'>
+              <Link to='/'>
                 <button
                   type="submit"
                   className={style.btn}
