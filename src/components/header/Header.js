@@ -15,14 +15,14 @@ const Header = () => {
     const cartItems = Object.values(cart);
 
     useEffect ( () => {
-      const savedUsername = localStorage.getItem('username') || 'Username';
+      const savedUsername = localStorage.getItem('username') || '';
       if (userName) {
         setUserName(savedUsername)
       }
     }, [setUserName, userName])
 
     const signOut = () => {
-      setUserName('Username');
+      setUserName('');
       localStorage.removeItem("username");
       setCart([]);
       localStorage.removeItem("cart");
@@ -39,7 +39,7 @@ const Header = () => {
 
         
           <nav className={(navigate && window.innerWidth < 700) ? [style.nav__navigate, style.active].join(' ') : [style.nav__navigate] }>
-            { (userName !== 'Username') && (
+            { (userName !== '') && (
               <>
               <Link to='/cart' className={style.cart__header}>
                 <RiShoppingCart2Line color="gray" size={32}  onClick={() => setNavigate(false)}/>

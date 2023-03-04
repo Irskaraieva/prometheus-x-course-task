@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import SinglePursheBook from "./SinglePursheBook";
 import EmptyCart from "../../components/emptyCart/EmptyCart";
 import img from "./../../images/imageNotFound.png";
 import { AiFillDelete } from 'react-icons/ai';
 import { CartItemCount } from "../../context/CartContext";
 import { ContextLogin } from "../../helpers/Context";
+import BtnToTheStore from "../btnToTheStore/BtnToTheStore";
 
 
 const PurchaseList = () => {
@@ -50,11 +50,7 @@ const PurchaseList = () => {
       
         <div className="purchase__total__btn">
           {cartItems.length > 0 ? (
-            <Link to='/book-list' className="back__to__store">
-              <button type="submit" className="purchase__to__store">
-                <span>Back to the store</span>
-              </button>
-            </Link>
+            <BtnToTheStore />
           ) : null}
           <span className="total__price__pur">
             Total price, $ {totalPriceSum}

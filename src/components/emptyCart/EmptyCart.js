@@ -1,5 +1,5 @@
 import emptyCart from "./../../images/cart.svg";
-import { Link } from "react-router-dom";
+import BtnToTheStore from "../btnToTheStore/BtnToTheStore";
 
 
 const EmptyCart = () => {
@@ -12,11 +12,7 @@ const EmptyCart = () => {
             </figure>
             <p className="figcaption__emp">The cart is empty...</p>
 
-            <Link to='/book-list'>
-                <button type="submit" className="purchase__to__shop">
-                    <span>To the store</span>
-                </button>
-            </Link>
+            <BtnToTheStore />
         </div>
           
         </main>
