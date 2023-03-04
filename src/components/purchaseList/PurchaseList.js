@@ -17,7 +17,7 @@ const PurchaseList = () => {
       if (cart) {
           setCart(cartContent)
       }
-  }, [cart, setCart])
+  }, [])
 
   const cartItems = Object.values(cart);
   const totalPriceSum = parseFloat(cartItems.reduce((acc, {totalPrice}) => acc + totalPrice, 0)).toFixed(2);
@@ -42,7 +42,7 @@ const PurchaseList = () => {
   }
 
   return (
-    <main className="main">
+    <>
       <div className="purchaseList">
         <button type="submit" className="purchase" onClick={() => cleanCart()}>
           <span>Purchase</span>
@@ -86,7 +86,7 @@ const PurchaseList = () => {
           )}
         </div>
       </div>
-    </main>
+    </>
   );
 };
 

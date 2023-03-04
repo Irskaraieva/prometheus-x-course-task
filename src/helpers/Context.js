@@ -1,12 +1,15 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ContextLogin = createContext();
 
 export const ContextLoginProvider = ({children}) => {
 
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState(localStorage.getItem("username"));
 
-       
+    useEffect(() => {
+        localStorage.setItem("username", userName);
+      }, [userName]);
+
     const value = {
         userName,
         setUserName,

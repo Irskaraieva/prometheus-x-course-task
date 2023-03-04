@@ -119,7 +119,7 @@ const SpecificBook = () => {
   }
 
   return ( 
-  <main className="main">
+  <>
   <ScrollToTopOnMount />
     <div className="spec__book">
 
@@ -198,7 +198,7 @@ const SpecificBook = () => {
       </section>
       
     </div>
-  </main>
+  </>
   );
 }
  

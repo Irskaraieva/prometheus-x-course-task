@@ -29,7 +29,7 @@ const CardList = () => {
   const hasBooks = displayedBooks.length > 0;
 
   return (
-    <main className="main">
+    <>
       <ScrollToTopOnMount />
       <Inputs
         searchValue={searchValue}
@@ -61,7 +61,7 @@ const CardList = () => {
           <div className="is__not__found">No books found with the selected criteria.</div>
         )}
       </section>
-    </main>
+    </>
   );
 };
  

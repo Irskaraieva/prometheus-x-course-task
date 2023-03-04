@@ -29,7 +29,7 @@ const SignIn = () => {
   };
   
   return ( 
-    <main className="main">
+    <>
       <div className="main__content">
         <figure className="figure__sign">
           <FcReading className="figure__img" />
@@ -63,7 +63,7 @@ const SignIn = () => {
           </Link>
         </form >
       </div>
-    </main>
+    </>
   );
 }
  
