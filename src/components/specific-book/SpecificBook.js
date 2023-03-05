@@ -33,16 +33,19 @@ const SpecificBook = () => {
   };
 
   const decreaseButton = () => {
-    let enterValue = parseInt(inputNum.inputNumber) - 1;
-    if (enterValue <= 0) {
-        alert("Sorry, but is not possible to buy 0 or less books.");
-        enterValue = 1;
-    }
+    if (inputNum.inputNumber !== '') {
 
-    setInputNum ({
-      inputNumber: enterValue,
-      totalPrice: (enterValue * parseFloat(singlePrise)).toFixed(2)
-    })
+      let enterValue = parseInt(inputNum.inputNumber) - 1;
+      if (enterValue <= 0) {
+          alert("Sorry, but is not possible to buy 0 or less books.");
+          enterValue = 1;
+      }
+
+      setInputNum ({
+        inputNumber: enterValue,
+        totalPrice: (enterValue * parseFloat(singlePrise)).toFixed(2)
+      })
+    }
   };
 
   function handInput(event) {
