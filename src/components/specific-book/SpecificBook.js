@@ -67,7 +67,7 @@ const SpecificBook = () => {
   }
 
   function someKeyDown(event) {
-    if ((event.key === ',') || (event.key === '.') || (event.key === '+') || (event.key === 'e')) {
+    if ((event.key === ',') || (event.key === '.') || (event.key === '+') || (event.key === 'e') || (event.key === '-')) {
       event.preventDefault()
     }
   }
