@@ -85,36 +85,39 @@ const SpecificBook = () => {
   const existingCartItem = existingCart.find((item) => item.id === book.id);
 
   function handleAddToCart() {
-    const { title, price, image, id } = book;
-    const quantity = parseInt(inputNum.inputNumber);
-    const totalPrice = parseFloat(inputNum.totalPrice);
-    const imageUrl = image ? image : img;
+    if (inputNum.inputNumber !== '') {
+      const { title, price, image, id } = book;
+      const quantity = parseInt(inputNum.inputNumber);
+      const totalPrice = parseFloat(inputNum.totalPrice);
+      const imageUrl = image ? image : img;
 
-    if (existingCartItem) {
-      const itemIndex = existingCart.findIndex((item) => item.id === book.id);
-      const itemQuantity = existingCartItem.quantity + quantity;
-      existingCart[itemIndex] = {
-        ...existingCartItem,
-        quantity: itemQuantity > 42 ? 42 : itemQuantity,
-        totalPrice: existingCartItem.totalPrice + totalPrice
-      };
-      localStorage.setItem("cart", JSON.stringify(existingCart));
-      setCart(existingCart);
-    } else {
-      const updatedCart = [
-        ...existingCart,
-        {
-          id,
-          title,
-          quantity: quantity > 42 ? 42 : quantity,
-          price,
-          totalPrice,
-          image: imageUrl,
-        },
-      ];
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      setCart(updatedCart);
-    }    
+      if (existingCartItem) {
+        const itemIndex = existingCart.findIndex((item) => item.id === book.id);
+        const itemQuantity = existingCartItem.quantity + quantity;
+        existingCart[itemIndex] = {
+          ...existingCartItem,
+          quantity: itemQuantity > 42 ? 42 : itemQuantity,
+          totalPrice: existingCartItem.totalPrice + totalPrice
+        };
+        localStorage.setItem("cart", JSON.stringify(existingCart));
+        setCart(existingCart);
+        
+        } else {
+        const updatedCart = [
+          ...existingCart,
+          {
+            id,
+            title,
+            quantity: quantity > 42 ? 42 : quantity,
+            price,
+            totalPrice,
+            image: imageUrl,
+          },
+        ];
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        setCart(updatedCart);
+      }
+    }
   }
 
   return ( 
