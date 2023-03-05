@@ -64,13 +64,13 @@ const PurchaseList = () => {
             cartItems.map((item) => (
               <div className="single__li" key={item.id} >
                 <SinglePursheBook
-                    id={item.id}
-                    title={item.title}
-                    img={item.image || img}
-                    price={item.price}
-                    totalPrice={parseFloat(item.totalPrice).toFixed(2)}
-                    count={item.quantity}
-                    handleDelete={handleDelete}
+                  id={item.id}
+                  title={item.title}
+                  img={item.image || img}
+                  price={item.price}
+                  totalPrice={parseFloat(item.totalPrice).toFixed(2)}
+                  count={item.quantity}
+                  handleDelete={handleDelete}
                 />
                 <AiFillDelete className="dlete__cart" onClick={() => handleDelete(item.id)}/>
               </div>

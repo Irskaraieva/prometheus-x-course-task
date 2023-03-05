@@ -38,7 +38,7 @@ const SignIn = () => {
         <form action="/" method="post" className="form" onSubmit={handleSubmit}>
     
           <span className="label__for__name">
-            Please enter your name to be able to enter the store...
+            Please enter your name between 4 and 16 characters to be able to enter the store...
           </span>
 
           <input

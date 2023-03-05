@@ -114,8 +114,7 @@ const SpecificBook = () => {
       ];
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCart(updatedCart);
-    }
-    
+    }    
   }
 
   return ( 
