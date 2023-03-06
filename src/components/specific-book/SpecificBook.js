@@ -70,8 +70,15 @@ const SpecificBook = () => {
   }
 
   function someKeyDown(event) {
-    if ((event.key === ',') || (event.key === '.') || (event.key === '+') || (event.key === 'e') || (event.key === '-')) {
-      event.preventDefault()
+    if (
+      (event.key === ',') ||
+      (event.key === '.') ||
+      (event.key === '+') ||
+      (event.key === 'e') ||
+      (event.key === '-') ||
+      (isNaN(event.key) && event.keyCode !== 8)
+      ) {
+        event.preventDefault()
     }
   }
   
